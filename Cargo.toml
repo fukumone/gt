@@ -1,0 +1,21 @@
+[package]
+name = "gt"
+license = "MIT"
+edition = "2021"
+version = "0.1.0"
+readme = "README.md"
+categories = ["command-line-utilities"]
+homepage = "https://github.com/fukumone/gt"
+repository = "https://github.com/fukumone/gt"
+description = "Translate messages from terminal using OpenAI."
+authors = ["Toru Fukui <fukui.development@gmail.com>"]
+
+[dependencies]
+clap = { version = "4.1.4", features = ["derive"] }
+async-std = "1.12.0"
+dotenv = "0.15.0"
+reqwest = { version = "0.11", features = ["json"] }
+serde = "1.0.152"
+serde_derive = "1.0.152"
+serde_json = "1.0.91"
+tokio = { version = "1", features = ["full"] }
