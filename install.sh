@@ -64,8 +64,6 @@ main() {
     echo "downloading latest binary"
     ensure curl -L "$BINARY_URL" -o "$BIN_DIR/gt"
     chmod +x "$BIN_DIR/gt"
-
-    echo "installed - $("$BIN_DIR/gt" --version)"
 }
 
 # Run a command that should never fail. If the command fails execution
