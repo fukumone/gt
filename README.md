@@ -9,7 +9,7 @@ You can install gt by running the following command in your terminal.
 curl -fsSL https://raw.githubusercontent.com/fukumone/gt/main/install.sh | sh -
 ```
 
-Or, please download the binary that is compatible with your OS from [here](https://github.com/fukumone/gt/releases/tag/v0.1.1).
+Or, please download the binary that is compatible with your OS from [here](https://github.com/fukumone/gt/releases/tag/v0.1.0).
 
 ## Usage
 
@@ -57,7 +57,7 @@ $ gt -t "我深深地爱上了东京，来到这里真是太美妙了。" -l Por
 Also, you can check the usage with the help command.
 
 ```
-$ gt -t help
+$ gt -t -help
 
 Translates text
 
