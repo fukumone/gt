@@ -76,6 +76,7 @@ async fn fetch_openai_request(prompt: String, model: String) -> Result<String, r
 fn cli() -> Command {
     Command::new("gt")
         .about("Translate messages from terminal using OpenAI.")
+        .version("0.0.1")
         .subcommand_required(true)
         .arg_required_else_help(true)
         .allow_external_subcommands(true)
