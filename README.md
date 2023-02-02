@@ -13,36 +13,62 @@ Or, please download the binary that is compatible with your OS from [here](https
 
 ## Usage
 
-1. Get your API key from OpenAI by setting the `OPENAI_API_KEY` environment variable. Example: `export OPENAI_API_KEY=xxxxx`
+### 1. API key configuration
+Get your API key from OpenAI by setting the `OPENAI_API_KEY` environment variable. 
+
+Example: `export OPENAI_API_KEY=xxxxx`
+
 For more information, visit the provided [link](https://openai.com/).
 
-2. To set the language you want to translate to, use the `GT_LANGUAGE` environment variable. For instance, if you want to translate to French, type `export GT_LANGUAGE=French` By default, the GT_LANGUAGE is set to translate to English in any language.
+### 2. Specifying the translation language
+To set the language you want to translate, use the -l option in the options and specify the language.
 
-3. Try it out by opening the command line and typing `gt -t "text"`
+For example, `gt -t "Hello" -l Japanese`
 
+If there is no value, it will be translated into **English by default**.
 
-#### example
+You can also specify it by setting a value in the environment variable **GT_LANGUAGE**.
+
+For example, `export GT_LANGUAGE=Japanese && gt -t "Hello"`
+
+### 3. Execute
+Try it out by opening the command line and typing `gt -t "Hello!" -l Japanese`
+
+### example
+
 ```
-
 # Translated from English to French
-$ export GT_LANGUAGE=French
-$ gt -t "I love Tokyo greatly, it is wonderful to be here."
+$ gt -t "I love Tokyo greatly, it is wonderful to be here." -l French
 # => J'aime Tokyo grandement, c'est merveilleux d'être ici.
 
 # Translated from Spanish to Arabic
-$ export GT_LANGUAGE=Arabic
-$ gt -t "Me gusta mucho Tokio; es maravilloso estar aquí."
+$ gt -t "Me gusta mucho Tokio; es maravilloso estar aquí." -l Arabic
 # => الحب لطوكيو كثيرا؛ هو مدهش أن نكون هنا.
 
 # Translated from Japanese to Italian
-$ export GT_LANGUAGE=Italian
-$ gt -t "私は東京がとても好きです。素晴らしいところです。"
+$ gt -t "私は東京がとても好きです。素晴らしいところです。" -l Italian
 # => Mi piace molto Tokyo. È un posto meraviglioso.
 
 # Translated from Mandarin to Portuguese
-$ export GT_LANGUAGE=Portuguese
-$ gt -t "我深深地爱上了东京，来到这里真是太美妙了。"
+$ gt -t "我深深地爱上了东京，来到这里真是太美妙了。" -l Portuguese
 # => Eu me apaixonei profundamente por Tóquio, e estar aqui é realmente maravilhoso.
+```
+
+Also, you can check the usage with the help command.
+
+```
+$ gt -t help
+
+Translates text
+
+Usage: gt {translate|-t} [OPTIONS] <TEXT>
+
+Arguments:
+  <TEXT>  Text to translate
+
+Options:
+  -l, --language <LANGUAGE>  Language to use [default: English]
+  -h, --help                 Print help
 ```
 
 ## License

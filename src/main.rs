@@ -85,8 +85,19 @@ fn cli() -> Command {
                 .about("Translates text")
                 .short_flag('t')
                 .arg(arg!(<TEXT> "Text to translate"))
+                .args(push_args())
                 .arg_required_else_help(true),
         )
+}
+
+fn push_args() -> Vec<clap::Arg> {
+    vec![
+        clap::Arg::new("LANGUAGE")
+            .long("language")
+            .short('l')
+            .default_value("English")
+            .help("Language to use"),
+    ]
 }
 
 #[tokio::main]
@@ -96,11 +107,12 @@ async fn main() {
     match matches.subcommand() {
         Some(("translate", sub_matches)) => {
             let text = sub_matches.get_one::<String>("TEXT").expect("required");
-            let country = match env::var("GT_LANGUAGE") {
+            let lauguage = match env::var("GT_LANGUAGE") {
                 Ok(val) => val,
-                Err(_) => "English".to_string(),
+                Err(_) => sub_matches.get_one::<String>("LANGUAGE").expect("required").to_string(),
             };
-            let prompt = format!("I want you to act as an {} translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in {}. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level {} words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is '{}'", country, country, country, text);
+
+            let prompt = format!("I want you to act as an {} translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in {}. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level {} words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is '{}'", lauguage, lauguage, lauguage, text);
             let model = "text-davinci-003".to_string();
             let response:Result<String, reqwest::Error> = fetch_openai_request(prompt, model).await;
             match response {
