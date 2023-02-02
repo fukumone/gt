@@ -9,7 +9,7 @@ You can install gt by running the following command in your terminal.
 curl -fsSL https://raw.githubusercontent.com/fukumone/gt/main/install.sh | sh -
 ```
 
-Or, please download the binary that is compatible with your OS from [here](https://github.com/fukumone/gt/releases/tag/v0.1.0).
+Or, please download the binary that is compatible with your OS from [here](https://github.com/fukumone/gt/releases/tag/v0.1.1).
 
 ## Usage
 
