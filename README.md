@@ -21,7 +21,7 @@ Example: `export OPENAI_API_KEY=xxxxx`
 For more information, visit the provided [link](https://openai.com/).
 
 ### 2. Specifying the translation language
-To set the language you want to translate, use the -l option in the options and specify the language.
+To set the language you want to translate, use the **-l** option in the options and specify the language.
 
 For example, `gt -t "Hello" -l Japanese`
 
